@@ -1,15 +1,13 @@
+#pragma once
 #include "noeud.hpp"
 #include <string>
-
-class DictionaryTree
+using namespace std;
+class Gaddag
 {
-    Node *root;
-
 public:
-    //Remplit le dictionnaire
-    void fill(std::string fi);
-    void insert(std::string word);
-
-    //Vérifie qu'un mot appartient bien au dictionnaire
-    bool contains(std::string word);
+    Node *root;
+    void fill(string fi);
+    void insert(string word);
+    void gaddagInverse(string word);
+    bool contains(string word);
 };

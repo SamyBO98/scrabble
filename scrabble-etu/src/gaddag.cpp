@@ -2,63 +2,92 @@
 #include "gaddag.hpp"
 #include <fstream>
 #include <iostream>
-const int CHAR_OFFSET_START = 65;
+using namespace std;
 
-void DictionaryTree::fill(std::string path)
+void Gaddag::fill(std::string path)
 {
     root = new Node(false);
 
-    std::ifstream fi(path);
+    ifstream fi(path);
 
     if (!fi.is_open())
     {
-        std::cerr << "Erreur." << std::endl;
+        cerr << "Mauvais fichier " << endl;
         return;
     }
 
-    std::string line;
+    string line;
     while (!fi.eof())
     {
         getline(fi, line);
         insert(line);
+        gaddagInverse(line);
+        
     }
-
-    // for (int i = 0; i < ALPHABET_SIZE; i++)
-    // {
-    //     if (root->children[i] != nullptr)
-    //         std::cout << (char)(i + CHAR_OFFSET_START) << std::endl;
-    // }
 }
 
-bool DictionaryTree::contains(std::string word)
+bool Gaddag::contains(std::string word)
 {
     Node *curr = root;
     for (unsigned int i = 0; i < word.size(); i++)
     {
-        if (curr->children[word[i] - CHAR_OFFSET_START] != nullptr)
+        int idx = word[i] - 65;
+        if(word[i] == '+')
+            idx = 26;
+        if (curr->children[idx] != nullptr)
         {
-            curr = curr->children[word[i] - CHAR_OFFSET_START];
-            std::cout << "test " << curr->isFinal << std::endl;
-            std::cout << std::endl;
+            curr = curr->children[idx];
+            cout << "Est finale " << curr->isFinal << endl;
+            cout << endl;
         }
         else
             return false;
+            
     }
     return curr->isFinal;
 }
 
-void DictionaryTree::insert(std::string word)
+
+
+
+void Gaddag::insert(string word)
 {
     Node *curr = root;
 
     for (unsigned int i = 0; i < word.size(); i++)
     {
-        if (curr->children[word[i] - CHAR_OFFSET_START] == nullptr)
+        int idx = word[i] - 65;
+        if(word[i] == '+')
+            idx = 26;
+        if (curr->children[idx] == nullptr)
         {
 
-            curr->children[word[i] - CHAR_OFFSET_START] = new Node(false);
+            curr->children[idx] = new Node(false);
         }
-        curr = curr->children[word[i] - CHAR_OFFSET_START];
+        curr = curr->children[idx];
     }
     curr->isFinal = true;
 }
+
+
+void Gaddag::gaddagInverse(string word){
+    int sizeGaddag = word.size() + 1;
+    string curr(word.size() + 1, 'x');
+    for(int i = 1 ; i<sizeGaddag ; i++){
+        curr[i] = '+';
+        for(int j = 0; j<word.size(); j++){
+            if(j<i){
+                curr[j] = word[i - j -1];
+            }else if(j>=i){
+                curr[j+1] = word[j];
+            }
+        }
+        std::cout<<curr<<std::endl;
+        insert(curr);
+        
+    }
+}
+
+
+
+

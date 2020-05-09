@@ -1,9 +1,11 @@
+#pragma once
 #include <vector>
 #include "sac.hpp"
 
 struct PlayerHand
 {
-    std::vector<char> hand;
+    int size;
+    char hand[7];
 
     PlayerHand(Sac &sac);
 

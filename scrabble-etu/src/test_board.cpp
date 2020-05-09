@@ -1,6 +1,7 @@
-//#include "board.hpp"
+#include "board.hpp"
 //#include "sac.hpp"
 #include "gaddag.hpp"
+#include "playerhand.hpp"
 #include <iostream>
 #include <sstream>
 #include <stdlib.h>
@@ -8,22 +9,13 @@
 using namespace std;
 int main() {
  
-DictionaryTree t;
-t.fill("data/dico.txt");
-//cout << a.contains("A") << endl;
-//cout << a.contains("ARC") << endl;
-cout << t.contains("AALENIENNES") << endl;
-
-
-
-
-
-
-
-
-
-
+/*Gaddag g;
+g.fill("data/dico2.txt");
+cout << g.contains("CHAT") << endl;*/
+//g.gaddagInverse("AMI");
+//cout << g.contains("RA+C") << endl;
 /*Sac s;
+srand(time(NULL));
 s.tirage();
 s.affichage();
 cout << '\n'; */

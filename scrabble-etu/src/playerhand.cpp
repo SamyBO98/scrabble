@@ -4,15 +4,16 @@
 
 PlayerHand::PlayerHand(Sac &sac)
 {
-    hand.resize(0);
+    size = 0;
     this->reload(sac);
 }
 
 void PlayerHand::reload(Sac &sac)
 {
-    const int missingLetters = 7 - hand.size();
-    for (int i = 0; i < missingLetters; i++)
+    
+    for (int i =size; i < 7; i++)
     {
-        this->hand.push_back(sac.tirage());
+        hand[i]=sac.tirage();
     }
+    size = 7;
 }
