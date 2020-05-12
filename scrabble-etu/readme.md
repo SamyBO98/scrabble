@@ -1,4 +1,6 @@
 # Projet Scrabble
+# BEN OTHMAN Samy p1707136
+# PAYET Pierre p1909186
 
 ## Introduction
 
@@ -40,6 +42,8 @@ La configuration de Premake est réalisée dans le fichier `premake4.lua`. Vous 
 trouverez en commentaire comment ajouter de nouveaux fichiers à votre projet, et
 comment compiler de multiples exécutables.
 
+
+
 ### Générer un Makefile (premake 4 ou 5)
 ```
 premake4 gmake
@@ -55,6 +59,12 @@ premake4 codeblocks
 
 Une fois le projet généré, ouvrez le fichier `.workspace` dans Codeblocks, et
 vous pourrez travailler.
+
+### Lancer le projet
+```
+bin/test_board
+
+```
 
 ## Gestion du joueur
 
