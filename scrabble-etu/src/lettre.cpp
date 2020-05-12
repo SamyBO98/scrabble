@@ -1,9 +1,4 @@
 #include "lettre.hpp"
-
-
-
-
-
 Lettre::Lettre(const char &L, const int &NbPoints){
     l=L;
     nbPoints = NbPoints;

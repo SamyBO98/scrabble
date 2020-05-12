@@ -4,7 +4,7 @@ struct Node
 {
     bool isFinal;
    //Node *children[26];
-   //Ajout du + pour le gaddag
+   //On rajoute un enfant en plus pour gérer le + du gaddag inverse
    Node *children[27];
 
     Node() : isFinal(false) {}

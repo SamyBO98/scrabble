@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 
+// On remplit notre gaddag avec les mots puis avec les + et les mots inversés
 void Gaddag::fill(std::string path)
 {
     root = new Node(false);
@@ -26,6 +27,8 @@ void Gaddag::fill(std::string path)
     }
 }
 
+
+// Fonction qui regarde si le mot est valide ou pas (Il regarde la valeur du bool et la retourne)
 bool Gaddag::contains(std::string word)
 {
     Node *curr = root;
@@ -49,7 +52,7 @@ bool Gaddag::contains(std::string word)
 
 
 
-
+// Lit notre .txt et à chaque fin de mot lui mets un bool = true
 void Gaddag::insert(string word)
 {
     Node *curr = root;
@@ -70,6 +73,7 @@ void Gaddag::insert(string word)
 }
 
 
+// Inverse les mots avec le signe +
 void Gaddag::gaddagInverse(string word){
     int sizeGaddag = word.size() + 1;
     string curr(word.size() + 1, 'x');

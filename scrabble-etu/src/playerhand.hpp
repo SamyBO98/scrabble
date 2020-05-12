@@ -9,6 +9,6 @@ struct PlayerHand
 
     PlayerHand(Sac &sac);
 
-    //Pioche pour compléter la main
+    //Gère la pioche quand le joueur a joué des lettres (quand il a moins de 7 lettres dans sa main)
     void reload(Sac &sac);
 };

@@ -1,5 +1,6 @@
 #include "sac.hpp"
 
+// Création du sac avec toutes les lettres et leurs nombres respectifs
 Sac::Sac(){
     for(int i =0; i<26; i++){
         for(int j=0 ; j<nombres[i]; j++){
@@ -9,7 +10,7 @@ Sac::Sac(){
 }
 
 
-
+// Tirage de 7 lettres aléatoires. On prend une lettre et on comble le vide avec la dernière lettre du tableau.
 char Sac::tirage(){
     for(int i =0; i<7;i++){
         int random = rand() % tabLettre.size();
@@ -21,11 +22,12 @@ char Sac::tirage(){
     return 0;
 }
 
+// Destructeur
 Sac::~Sac(){
     tabLettre.clear();
 }
 
-
+// On affiche la main
 void Sac::affichage(){
     for(int i =0; i<7; i++){
         cout << mainJoueur[i].l << " ";

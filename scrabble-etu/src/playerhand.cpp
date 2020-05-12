@@ -8,6 +8,7 @@ PlayerHand::PlayerHand(Sac &sac)
     this->reload(sac);
 }
 
+// Recharge notre main sans dépasser 7
 void PlayerHand::reload(Sac &sac)
 {
     
